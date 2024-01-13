@@ -3,8 +3,8 @@ import React from 'react';
 import Card from './Card';
 import emojipedia from '../emojipedia';
 
-function createCard(emojisatu) {
-  return <Card id={emojisatu.id} emoji={emojisatu.emoji} name={emojisatu.name} meaning={emojisatu.meaning} />;
+function createCard(emojiSatu) {
+  return <Card id={emojiSatu.id} emoji={emojiSatu.emoji} name={emojiSatu.name} meaning={emojiSatu.meaning} />;
 }
 
 function App() {
@@ -13,7 +13,11 @@ function App() {
       <h1>
         <span>emojipedia</span>
       </h1>
-      <dl className="dictionary">{emojipedia.map(createCard)}</dl>
+      <dl className="dictionary">
+        {emojipedia.map((emojiSatu) => (
+          <Card id={emojiSatu.id} emoji={emojiSatu.emoji} name={emojiSatu.name} meaning={emojiSatu.meaning} />
+        ))}
+      </dl>
     </div>
   );
 }
